@@ -7,15 +7,14 @@ export default class HabitationFavoritsScreen extends React.Component {
     title: 'Imóveis Favoritos',
   };
  
-  render() {
-    const { navigate } = this.props.navigation;
-    const contact = 'text';
+render() {
+  const { navigate } = this.props.navigation;
+  const contact = 'text';
+
     return (
       <View>
         <View style={styles.container}>
           <Text style={styles.contactName}>{contact}</Text>
-          <Text style={styles.contactDetails}>E-mail: {contact}</Text>
-          <Text style={styles.contactDetails}>Telefone: {contact}</Text>
         </View>
         <View style={styles.button} >
           <Button title="Voltar" onPress={() => navigate('Home')} />

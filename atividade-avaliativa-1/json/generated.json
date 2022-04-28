@@ -12,7 +12,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": true,
+                "geladeira": true,
                 "Cama": false,
                 "Fogao": false,
                 "Armario": true,
@@ -50,7 +50,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": false,
+                "geladeira": false,
                 "Cama": false,
                 "Fogao": true,
                 "Armario": true,
@@ -88,7 +88,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": true,
+                "geladeira": true,
                 "Cama": false,
                 "Fogao": true,
                 "Armario": true,
@@ -126,7 +126,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": false,
+                "geladeira": false,
                 "Cama": false,
                 "Fogao": true,
                 "Armario": true,
@@ -164,7 +164,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": true,
+                "geladeira": true,
                 "Cama": true,
                 "Fogao": true,
                 "Armario": false,
@@ -202,7 +202,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": false,
+                "geladeira": false,
                 "Cama": false,
                 "Fogao": false,
                 "Armario": true,
@@ -240,7 +240,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": true,
+                "geladeira": true,
                 "Cama": true,
                 "Fogao": false,
                 "Armario": true,
@@ -278,7 +278,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": true,
+                "geladeira": true,
                 "Cama": true,
                 "Fogao": false,
                 "Armario": true,
@@ -316,7 +316,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": true,
+                "geladeira": true,
                 "Cama": true,
                 "Fogao": true,
                 "Armario": false,
@@ -358,7 +358,7 @@
         "furniture": [
             {
                 "id": 0,
-                "Geladeira": true,
+                "geladeira": true,
                 "Cama": false,
                 "Fogao": true,
                 "Armario": true,

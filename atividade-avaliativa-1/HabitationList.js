@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, ActivityIndicator, SafeAreaView, ScrollView, FlatList, TouchableOpacity } from 'react-native';
+import Data from './json/generated.json';
  
 export default class HabitationListScreen extends React.Component {
   static navigationOptions = {
@@ -8,32 +9,15 @@ export default class HabitationListScreen extends React.Component {
  
   constructor(props){
     super(props);
-    this.state = { isLoading: true }
+    this.state = { isLoading: false }
+  }
+  
+  makeRemoteRequest = () => {
+  this.setState({
+    data: Data,
+  });
   }
 
-  componentDidMount(){
-    const { navigation } = this.props;
-
-    this.focusListener = navigation.addListener('didFocus', () => {
-      return fetch('https://jsonplaceholder.typicode.com/users')
-        .then((response) => response.json())
-        .then((json) => {
-          this.setState({
-            isLoading: false,
-            contacts: json,
-          }, function(){
-          });
-        })
-        .catch((error) =>{
-          console.error(error);
-        });
-    });
-}
- 
-  componentWillUnmount() {
-    this.focusListener.remove();
-  } 
- 
   render() {
     if(this.state.isLoading){
       return(
@@ -47,7 +31,7 @@ export default class HabitationListScreen extends React.Component {
     return(
       <ScrollView style={styles.container}>
         <FlatList
-          data={this.state.contacts}
+          data={Data}
           renderItem={({item}) =>
           <TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item})}>
             <View>
