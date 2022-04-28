@@ -1,0 +1,390 @@
+[
+    {
+        "index": 0,
+        "name": "NEXGENE",
+        "qtd_rooms": 15,
+        "address": "362 Broome Street, Kaka, New Jersey, 9260",
+        "latitude": 5.446676,
+        "longitude": -9.659322,
+        "vl_total": 1010,
+        "type_habitations": "Masculino",
+        "type_rooms": "Indivídual",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": true,
+                "Cama": false,
+                "Fogao": false,
+                "Armario": true,
+                "Mesa": true,
+                "Microondas": false,
+                "TV": true,
+                "GuardaRoupa": false,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Privado",
+        "area": 28,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.DpQGVFIe7rST5YjSJHOZwQHaE6%26pid%3DApi&f=1"
+            }
+        ],
+        "description": "Incididunt sit sunt cupidatat ullamco nisi duis cupidatat deserunt ad velit. Consectetur deserunt ad irure reprehenderit officia occaecat esse Lorem velit commodo ea eu eiusmod eu. Labore consequat voluptate quis ipsum velit qui sunt anim. Pariatur consequat labore excepteur culpa exercitation quis tempor ipsum nisi exercitation ea. Mollit eiusmod nostrud pariatur incididunt ad officia reprehenderit commodo nisi sunt qui. Velit ipsum excepteur cillum minim ullamco est dolor et. In duis do aliqua do pariatur aute aute sit aliqua ullamco laborum.\r\n",
+        "video": "https://www.youtube.com/watch?v=WMGFvA0pzzA",
+        "phone": "+55 (48) 99583-2839",
+        "email": "dickersonsykes@nexgene.com",
+        "more_informations": "Consectetur proident incididunt mollit nulla ipsum magna eu voluptate cillum et aliqua aute. Magna reprehenderit esse enim eu Lorem laboris eiusmod cupidatat laboris exercitation minim quis. Ea id ea magna ad mollit nostrud. Ullamco adipisicing duis mollit voluptate aliquip voluptate elit.\r\n"
+    },
+    {
+        "index": 1,
+        "name": "MIXERS",
+        "qtd_rooms": 8,
+        "address": "673 Amboy Street, Vienna, Maine, 194",
+        "latitude": -3.745958,
+        "longitude": 136.045535,
+        "vl_total": 1211,
+        "type_habitations": "Masculino",
+        "type_rooms": "Indivídual",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": false,
+                "Cama": false,
+                "Fogao": true,
+                "Armario": true,
+                "Mesa": true,
+                "Microondas": true,
+                "TV": false,
+                "GuardaRoupa": true,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Compartilhado",
+        "area": 123,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5jnXq_YYYfcPWqkjtcJGBgHaE7%26pid%3DApi&f=1"
+            }
+        ],
+        "description": "Culpa cupidatat anim nisi ullamco in dolore aliqua non reprehenderit commodo. Duis eiusmod reprehenderit esse consectetur duis esse Lorem eu magna commodo. Aute ex proident dolore quis officia velit. Pariatur mollit excepteur sunt ea aliquip veniam aliqua commodo aute ipsum quis mollit aute reprehenderit. Exercitation in exercitation veniam sint adipisicing reprehenderit nisi cupidatat et irure voluptate ad minim. Aliquip ullamco magna ea culpa duis consequat.\r\n",
+        "video": "https://www.youtube.com/watch?v=RIqWDJZNBic",
+        "phone": "+55 (48) 99521-2386",
+        "email": "dickersonsykes@mixers.com",
+        "more_informations": "Id ex esse consectetur ut. Tempor exercitation ipsum occaecat non aute elit aliqua. Sunt tempor officia est commodo reprehenderit culpa duis culpa elit nisi et ut reprehenderit et. Nulla aliquip consectetur enim officia adipisicing cillum amet non dolor irure nisi nulla. Excepteur aute ea labore consequat. Ad et nulla cillum eiusmod ea quis. Consectetur est et ipsum dolore non velit nisi consequat duis id adipisicing.\r\n"
+    },
+    {
+        "index": 2,
+        "name": "VERAQ",
+        "qtd_rooms": 7,
+        "address": "482 Langham Street, Calverton, New Mexico, 8151",
+        "latitude": 50.580938,
+        "longitude": 46.791469,
+        "vl_total": 975,
+        "type_habitations": "Feminino",
+        "type_rooms": "Compartilhado por 2 ou mais",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": true,
+                "Cama": false,
+                "Fogao": true,
+                "Armario": true,
+                "Mesa": false,
+                "Microondas": true,
+                "TV": false,
+                "GuardaRoupa": true,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Privado",
+        "area": 35,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IrGaQ1nV7ZcmmEWt3cC9JAHaCf%26pid%3DApi&f=1"
+            }
+        ],
+        "description": "Et deserunt tempor culpa officia ad do irure ad ullamco exercitation sit. Dolore reprehenderit id consectetur commodo cupidatat incididunt amet labore. Sit eu commodo duis commodo qui est ex incididunt sit dolor id. Et magna ipsum aliqua ea nisi occaecat cupidatat. Voluptate do nostrud minim eu labore. In non excepteur tempor pariatur.\r\n",
+        "video": "https://www.youtube.com/watch?v=psSkye94XjY",
+        "phone": "+55 (48) 99548-2814",
+        "email": "dickersonsykes@veraq.com",
+        "more_informations": "Cillum sunt non esse irure Lorem aute cupidatat ullamco elit ipsum tempor ullamco cillum ex. Minim aliquip veniam laboris labore. Sint pariatur deserunt esse commodo sunt consectetur amet do excepteur enim. Esse labore cupidatat reprehenderit minim consequat minim et.\r\n"
+    },
+    {
+        "index": 3,
+        "name": "SLOGANAUT",
+        "qtd_rooms": 6,
+        "address": "725 Hyman Court, Edmund, California, 4053",
+        "latitude": -39.426946,
+        "longitude": -91.629637,
+        "vl_total": 890,
+        "type_habitations": "Mista",
+        "type_rooms": "Indivídual",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": false,
+                "Cama": false,
+                "Fogao": true,
+                "Armario": true,
+                "Mesa": false,
+                "Microondas": false,
+                "TV": true,
+                "GuardaRoupa": false,
+                "MaquinaLavar": true
+            }
+        ],
+        "type_bathroom": "Compartilhado",
+        "area": 83,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://casas-de-madeira.pt/wp-content/uploads/2020/07/dublin_bis-casas-de-madeira-1536x990.jpg"
+            }
+        ],
+        "description": "Laborum proident ex adipisicing veniam. Laboris ad anim Lorem magna labore. Qui consectetur labore nisi occaecat deserunt consectetur id veniam fugiat in. Et exercitation amet fugiat id ex commodo enim nisi ullamco aliquip reprehenderit do elit id. Ex quis ea Lorem non in aute laborum ullamco Lorem ullamco velit. Enim aliqua aliqua ipsum consectetur aute duis velit tempor.\r\n",
+        "video": "https://www.youtube.com/watch?v=eWE8TmNT7MM",
+        "phone": "+55 (48) 99458-3208",
+        "email": "dickersonsykes@sloganaut.com",
+        "more_informations": "Culpa culpa ea id cupidatat ullamco. Aliqua culpa excepteur incididunt tempor quis voluptate enim ea. Aliqua aliquip anim laborum Lorem. Nulla anim quis adipisicing non ad commodo mollit proident minim anim labore aute. Quis et nisi nisi officia ex esse ex amet exercitation esse aliquip in ex. Occaecat voluptate cupidatat cupidatat quis ex commodo tempor velit.\r\n"
+    },
+    {
+        "index": 4,
+        "name": "DEMINIMUM",
+        "qtd_rooms": 14,
+        "address": "242 Montrose Avenue, Floriston, Louisiana, 8093",
+        "latitude": 59.057489,
+        "longitude": -111.960526,
+        "vl_total": 1389,
+        "type_habitations": "Feminino",
+        "type_rooms": "Compartilhado por 2 ou mais",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": true,
+                "Cama": true,
+                "Fogao": true,
+                "Armario": false,
+                "Mesa": false,
+                "Microondas": true,
+                "TV": false,
+                "GuardaRoupa": true,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Privado",
+        "area": 112,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://media.moneytimes.com.br/uploads/2021/06/imoveis-eua2-1024x544.jpg"
+            }
+        ],
+        "description": "Nostrud ipsum pariatur consectetur anim laboris enim cupidatat. Et et sint pariatur cillum commodo minim incididunt cupidatat exercitation sunt laboris deserunt cupidatat. Qui aute tempor non et mollit enim Lorem dolore eiusmod proident amet elit sit.\r\n",
+        "video": "https://www.youtube.com/watch?v=eWE8TmNT7MM",
+        "phone": "+55 (48) 99497-2025",
+        "email": "dickersonsykes@deminimum.com",
+        "more_informations": "Eiusmod ex veniam amet id cupidatat. Labore culpa laboris duis excepteur do nisi anim mollit nisi ut tempor exercitation qui. Sunt ullamco elit ex aliqua ut dolore id.\r\n"
+    },
+    {
+        "index": 5,
+        "name": "PETIGEMS",
+        "qtd_rooms": 11,
+        "address": "263 Jackson Place, Murillo, Montana, 2628",
+        "latitude": 68.995268,
+        "longitude": -137.260194,
+        "vl_total": 1252,
+        "type_habitations": "Masculino",
+        "type_rooms": "Indivídual",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": false,
+                "Cama": false,
+                "Fogao": false,
+                "Armario": true,
+                "Mesa": false,
+                "Microondas": false,
+                "TV": false,
+                "GuardaRoupa": true,
+                "MaquinaLavar": true
+            }
+        ],
+        "type_bathroom": "Compartilhado",
+        "area": 54,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://www.estudokids.com.br/wp-content/uploads/2015/05/como-surgiram-as-moradias.jpg"
+            }
+        ],
+        "description": "Occaecat laboris cillum excepteur reprehenderit laboris qui enim sunt Lorem. Sunt fugiat eiusmod Lorem irure aliqua eiusmod commodo. Anim exercitation elit mollit reprehenderit ullamco. Consequat do veniam consequat velit voluptate consequat in et veniam est cupidatat eu.\r\n",
+        "video": "https://www.youtube.com/watch?v=CPt5qwJCDO8",
+        "phone": "+55 (48) 99541-2808",
+        "email": "dickersonsykes@petigems.com",
+        "more_informations": "Quis ut dolor mollit voluptate sint deserunt fugiat amet nulla laboris officia culpa cupidatat. Esse sit quis ut duis Lorem. Magna esse cillum elit pariatur exercitation officia ut officia. Dolor ipsum nisi eu elit aliqua officia officia nostrud aliqua incididunt.\r\n"
+    },
+    {
+        "index": 6,
+        "name": "ONTALITY",
+        "qtd_rooms": 1,
+        "address": "991 Ridgewood Place, Tibbie, West Virginia, 9663",
+        "latitude": -77.171596,
+        "longitude": -14.600321,
+        "vl_total": 1018,
+        "type_habitations": "Feminino",
+        "type_rooms": "Compartilhado por 2 ou mais",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": true,
+                "Cama": true,
+                "Fogao": false,
+                "Armario": true,
+                "Mesa": true,
+                "Microondas": true,
+                "TV": false,
+                "GuardaRoupa": true,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Privado",
+        "area": 22,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://www.tuacasa.com.br/wp-content/uploads/2018/07/decoracao-kitnet-29.jpg"
+            }
+        ],
+        "description": "Est cupidatat proident proident est sint Lorem deserunt duis mollit velit sint minim dolor est. Anim ex sunt amet veniam nisi minim non voluptate. Nostrud proident id amet sint qui nulla ut tempor laborum. Ipsum esse nisi exercitation ipsum in sit duis fugiat commodo fugiat irure.\r\n",
+        "video": "https://www.youtube.com/watch?v=150vIQYFGQI",
+        "phone": "+55 (48) 99509-2558",
+        "email": "dickersonsykes@ontality.com",
+        "more_informations": "Tempor do dolore in officia deserunt adipisicing in reprehenderit laborum aliqua duis. Consequat officia magna sit laborum adipisicing sit adipisicing magna dolor excepteur consectetur id. Veniam laboris ea ex minim laboris tempor Lorem occaecat exercitation. Tempor culpa est tempor voluptate mollit. Qui non laboris sit qui voluptate non aliquip nostrud. Culpa occaecat deserunt fugiat sint ipsum ipsum elit elit consequat ad tempor nostrud laboris eu.\r\n"
+    },
+    {
+        "index": 7,
+        "name": "DIGIGEN",
+        "qtd_rooms": 1,
+        "address": "642 Poly Place, Hemlock, Ohio, 9880",
+        "latitude": -81.563438,
+        "longitude": 51.17274,
+        "vl_total": 1445,
+        "type_habitations": "Feminino",
+        "type_rooms": "Indivídual",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": true,
+                "Cama": true,
+                "Fogao": false,
+                "Armario": true,
+                "Mesa": false,
+                "Microondas": false,
+                "TV": false,
+                "GuardaRoupa": true,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Compartilhado",
+        "area": 12,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://www.tuacasa.com.br/wp-content/uploads/2018/07/decoracao-kitnet-30-730x487.jpg"
+            }
+        ],
+        "description": "Laboris consectetur ex et consectetur et. Aliqua dolor pariatur dolor incididunt. Cillum proident eiusmod id amet dolore et pariatur Lorem sunt fugiat. Mollit reprehenderit occaecat exercitation mollit incididunt cupidatat.\r\n",
+        "video": "https://www.youtube.com/watch?v=W9U-g3hUv9Q",
+        "phone": "+55 (48) 99513-3558",
+        "email": "dickersonsykes@digigen.com",
+        "more_informations": "Ex ullamco ex in irure cillum laborum anim et irure. Adipisicing nostrud mollit ad incididunt mollit aliquip commodo proident dolor ad eu commodo elit. Magna nulla minim et sunt enim nulla sunt velit labore quis eu aute sint. Ex ullamco aliquip velit aliqua id consequat ad nisi sunt cillum ullamco labore adipisicing. Ullamco duis aliquip tempor fugiat sunt incididunt sunt qui in.\r\n"
+    },
+    {
+        "index": 8,
+        "name": "BUZZOPIA",
+        "qtd_rooms": 7,
+        "address": "937 India Street, Groton, Michigan, 5904",
+        "latitude": 75.057699,
+        "longitude": -59.263201,
+        "vl_total": 1499,
+        "type_habitations": "Feminino",
+        "type_rooms": "Compartilhado por 2 ou mais",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": true,
+                "Cama": true,
+                "Fogao": true,
+                "Armario": false,
+                "Mesa": true,
+                "Microondas": false,
+                "TV": true,
+                "GuardaRoupa": false,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Privado",
+        "area": 40,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://static.erm-assets.com/r1-122-3-524/dynamicimages/resize/br-erm/H180414115723358/1/1024.jpg?modified=20191014135157"
+            },
+            {
+                "id": 1,
+                "link": "https://static.erm-assets.com/r2-0-24-668/dynamicimages/resize/br-erm/H1906271156062/7/1024.jpg?modified=20190627124650"
+            }
+        ],
+        "description": "Incididunt cupidatat minim ad officia consequat non sint sint quis commodo. Non sunt sit fugiat laborum anim cillum qui cupidatat aliqua aliquip proident. Mollit ullamco anim sint sit aliqua.\r\n",
+        "video": "https://www.youtube.com/watch?v=K_LCJkLZx4s",
+        "phone": "+55 (48) 99550-2113",
+        "email": "dickersonsykes@buzzopia.com",
+        "more_informations": "Amet adipisicing cillum consequat culpa ipsum pariatur fugiat consectetur mollit. Consequat laboris pariatur dolor cillum cupidatat culpa. Enim dolore sunt fugiat culpa non laboris labore eiusmod ut officia voluptate ex Lorem labore. Nulla nostrud id anim incididunt do laboris ullamco officia nulla aliquip do nostrud duis. Irure reprehenderit sit enim dolor reprehenderit amet aute voluptate eiusmod dolore non reprehenderit. Dolor minim cupidatat et deserunt id voluptate sint magna ad nisi ex ipsum ad. Quis anim ad quis irure aliqua.\r\n"
+    },
+    {
+        "index": 9,
+        "name": "DAISU",
+        "qtd_rooms": 11,
+        "address": "564 Ira Court, Summerfield, Pennsylvania, 6217",
+        "latitude": 7.05253,
+        "longitude": 84.116928,
+        "vl_total": 1032,
+        "type_habitations": "Feminino",
+        "type_rooms": "Compartilhado por 2 ou mais",
+        "furniture": [
+            {
+                "id": 0,
+                "Geladeira": true,
+                "Cama": false,
+                "Fogao": true,
+                "Armario": true,
+                "Mesa": true,
+                "Microondas": true,
+                "TV": true,
+                "GuardaRoupa": true,
+                "MaquinaLavar": false
+            }
+        ],
+        "type_bathroom": "Compartilhado",
+        "area": 107,
+        "photo": [
+            {
+                "id": 0,
+                "link": "https://static.erm-assets.com/r2-0-24-668/dynamicimages/resize/br-erm/H1906271156062/2/1024.jpg?modified=20190627124650"
+            },
+            {
+                "id": 1,
+                "link": "https://static.erm-assets.com/r2-0-24-668/dynamicimages/resize/br-erm/H1906271156062/3/1024.jpg?modified=20190627124650"
+            }
+        ],
+        "description": "Do consequat esse veniam duis qui labore nostrud commodo labore. Pariatur esse sunt minim est exercitation nisi aliquip dolore anim ullamco. Deserunt dolore qui non sunt magna qui non cupidatat mollit nostrud duis sint. Proident aute elit commodo occaecat excepteur dolore. Adipisicing adipisicing sit adipisicing sint culpa esse aute laborum amet commodo labore. Commodo ad consectetur adipisicing aliqua ad.\r\n",
+        "video": "https://www.youtube.com/watch?v=cjmP8u-94PY",
+        "phone": "+55 (48) 99401-3827",
+        "email": "dickersonsykes@daisu.com",
+        "more_informations": "Minim commodo dolor exercitation magna irure velit mollit voluptate aliqua do nulla cupidatat et duis. Dolor excepteur aliqua excepteur Lorem laboris aliquip adipisicing sit proident. Ad esse minim sunt et cupidatat occaecat reprehenderit cupidatat ipsum velit qui officia esse adipisicing. Aliquip nisi incididunt do cillum amet dolor laboris quis eiusmod tempor esse.\r\n"
+    }
+]
