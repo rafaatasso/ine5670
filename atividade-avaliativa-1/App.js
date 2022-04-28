@@ -1,38 +1,18 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-// You can import from local files
-import AssetExample from './components/AssetExample';
+import HomeScreen from './Home'
+import HabitationListScreen from './HabitationList'
+import HabitationDetailsScreen from './HabitationDetails'
+import HabitationFavoritsScreen from './HabitationFavorits'
 
-// or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.paragraph}>
-        Change code in the editor and watch it change on your phone! Save to get a shareable url.
-      </Text>
-      <Card>
-        <AssetExample />
-      </Card>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+const MainNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  HabitationList: {screen: HabitationListScreen},
+  HabitationDetails: {screen: HabitationDetailsScreen},
+  HabitationFavorits: {screen: HabitationFavoritsScreen},
 });
+ 
+const App = createAppContainer(MainNavigator);
+export default App;
