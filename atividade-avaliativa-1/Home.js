@@ -11,7 +11,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View>
         <View style={styles.container}>
-          <Image style={styles.logo} source={require('./assets/image.jpg')} />
+          <Image style={styles.logo} source={require('./assets/image.png')} />
           <Text style={styles.title} >Moradias UFSC</Text>
         </View>
         <View style={styles.button}>
