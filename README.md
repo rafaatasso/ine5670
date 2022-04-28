@@ -1,2 +1,11 @@
-# ine5670
-Matéria do fio que faz a gente contruir o mundo e Deus depois de mostrar como colocar um mapa em um botão
+# INE 5670 - Desenvolvimento de Sistemas Móveis e Embarcados
+
+Serão vistos:
+* Sistemas Móveis
+* Sistemas Embarcados
+* Backend para Sistemas Embarcados e Móveis
+
+Além de um Seminário - Novas Tecnologias de Desenvolvimento sobre:
+* Flutter
+
+E uma avaliação.
