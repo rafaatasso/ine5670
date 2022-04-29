@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, ActivityIndicator, SafeAreaView, ScrollView, FlatList, TouchableOpacity } from 'react-native';
-import Data from './json/generated.json';
+import Data from '../json/generated.json';
  
 export default class HabitationListScreen extends React.Component {
   static navigationOptions = {
