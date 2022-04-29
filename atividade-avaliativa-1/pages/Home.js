@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 60,
+    backgroundColor: '#FFFFFF'
   },
   logo: {
     height: 160,
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     color: '#1894f4',
   },
   button: {
-    padding: 15
+    padding: 15,
+    backgroundColor: '#FFFFFF'
   }
 });

@@ -47,7 +47,8 @@ export default class HabitationListScreen extends React.Component {
  
 const styles = StyleSheet.create({
   container: {
-   padding: 15
+   padding: 15,
+   backgroundColor: '#FFFFFF'
   },
   contact: {
     fontSize: 18,
