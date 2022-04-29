@@ -41,37 +41,46 @@ export default class HabitationDetailsScreen extends React.Component {
         <View style={styles.container}>
           <Text style={styles.contactName}>{name}</Text>
           <Text style={styles.contactDetails}>Quantidade de habitacoes: {qtd_rooms}</Text>
-          <Text style={styles.contactDetails}> Endereco: {address} </Text>
-          <Text style={styles.contactName}>MUDAR PARA MAPA:</Text>
-          <Text style={styles.contactDetails}> Latitude: {latitude} </Text>
-          <Text style={styles.contactDetails}> Longitude: {longitude} </Text>
-          <Text style={styles.contactDetails}> Valor do aluguel (R$) {vl_total} </Text>
-          <Text style={styles.contactDetails}> Tipo de moradia: {type_habitations} </Text>
-          <Text style={styles.contactDetails}> Tipo de alojamento: {type_rooms} </Text>
+          <Text style={styles.contactDetails}>Endereco: {address}</Text>
+          <Text style={styles.contactName}>MUDAR PARA MAP:</Text>
+          <Text style={styles.contactDetails}>Latitude: {latitude}</Text>
+          <Text style={styles.contactDetails}>Longitude: {longitude}</Text>
+          <Text style={styles.contactDetails}>Valor do aluguel (R$) {vl_total}</Text>
+          <Text style={styles.contactDetails}>Tipo de moradia: {type_habitations}</Text>
+          <Text style={styles.contactDetails}>Tipo de alojamento: {type_rooms}</Text>
           
-          <Text style={styles.contactDetails}> Mobiliario e equipamentos disponíveis no alojamento: </Text>
+          <Text style={styles.contactDetails}>Mobiliario e equipamentos disponíveis no alojamento:</Text>
             
-            <Text style={styles.contactDetails}> Geladeira: {geladeira} </Text>
-            <Text style={styles.contactDetails}> Cama: {furniture.Cama} </Text>
-            <Text style={styles.contactDetails}> Fogao: {furniture.Fogao} </Text> 
-            <Text style={styles.contactDetails}> Armario: {furniture.Armario} </Text> 
-            <Text style={styles.contactDetails}> Mesa: {furniture.Mesa} </Text>
-            <Text style={styles.contactDetails}> Microondas: {furniture.Microondas} </Text>
-            <Text style={styles.contactDetails}> TV: {furniture.TV} </Text> 
-            <Text style={styles.contactDetails}> GuardaRoupa: {furniture.GuardaRoupa} </Text> 
-            <Text style={styles.contactDetails}> MaquinaLava: {furniture.MaquinaLava} </Text>
-          <Text style={styles.contactDetails}> Tipo de banheiro: {type_bathroom} </Text>
-          <Text style={styles.contactDetails}> Área do alojamento (em m²): {area} </Text>
+            <Text style={styles.contactDetails}>Geladeira: {geladeira}</Text>
+            <Text style={styles.contactDetails}>Cama: {furniture.Cama}</Text>
+            <Text style={styles.contactDetails}>Fogao: {furniture.Fogao}</Text> 
+            <Text style={styles.contactDetails}>Armario: {furniture.Armario}</Text> 
+            <Text style={styles.contactDetails}>Mesa: {furniture.Mesa}</Text>
+            <Text style={styles.contactDetails}>Microondas: {furniture.Microondas}</Text>
+            <Text style={styles.contactDetails}>TV: {furniture.TV}</Text> 
+            <Text style={styles.contactDetails}>GuardaRoupa: {furniture.GuardaRoupa}</Text> 
+            <Text style={styles.contactDetails}>MaquinaLava: {furniture.MaquinaLava}</Text>
+          <Text style={styles.contactDetails}>Tipo de banheiro: {type_bathroom}</Text>
+          <Text style={styles.contactDetails}>Área do alojamento (em m²): {area}</Text>
+          <Text style={styles.contactDetails}>Descrição: {description}</Text>
+          <Text style={styles.contactDetails}>Outras informações: {more_informations}</Text>
+
           <FlatList
             data={photo}
             renderItem={({item}) =>  <Image source={{uri: item.link}} style={styles.image} />   }
           />
-            
-          <Text style={styles.contactDetails}> Descrição: {description} </Text>
-          <Text style={styles.contactDetails}> Vídeo: {video} </Text>
-          <Text style={styles.contactDetails}> Telefone de contato: {phone} </Text>
-          <Text style={styles.contactDetails}> E-mail pra contato: {email} </Text>
-          <Text style={styles.contactDetails}> Outras informações: {more_informations} </Text>
+          <View style={styles.button} >
+            <Button onPress={() => Linking.openURL(`${video}`) }
+              title="Veja o vídeo" />
+          </View>
+        </View>
+        <View style={styles.button} >
+            <Button onPress={() => Linking.openURL(`mailto:${email}`) }
+              title="Enviar E-mail" />
+        </View>
+        <View style={styles.button} >
+          <Button onPress={() => Linking.openURL(`tel:${phone}`) }
+            title="Ligar" />
         </View>
         <View style={styles.button} >
           <Button title="Voltar" onPress={() => navigate('HabitationList')} />
@@ -84,6 +93,7 @@ export default class HabitationDetailsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    backgroundColor: '#FFFFFF'
   },
   contactName: {
     fontSize: 18,
@@ -94,7 +104,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    padding: 15
+    padding: 15,
+    backgroundColor: '#FFFFFF'
   },
   image: {
     height: 160,

@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "atividade-avaliativa-1",
-    "slug": "snack-b3f35c7c-c976-4211-8506-32e1f41fbe6d",
+    "name": "Moradia UFSC",
+    "slug": "O melhor meio de achar casa para estudar na Federal",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/image.png",
     "splash": {
-      "image": "./assets/image.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFFFFF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/image.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/image.png"
+      "favicon": "./assets/favicon.png"
     }
   }
 }
