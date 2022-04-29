@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Button, Linking, FlatList, CheckBox, Image} from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Button, Linking, FlatList, Image} from 'react-native';
 import { Platform } from 'react-native';
  
 export default class HabitationDetailsScreen extends React.Component {
@@ -37,7 +37,7 @@ export default class HabitationDetailsScreen extends React.Component {
     const { name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations, geladeira } = this.state;
 
     return (
-      <View>
+      <ScrollView>
         <View style={styles.container}>
           <Text style={styles.contactName}>{name}</Text>
           <Text style={styles.contactDetails}>Quantidade de habitacoes: {qtd_rooms}</Text>
@@ -51,15 +51,15 @@ export default class HabitationDetailsScreen extends React.Component {
           
           <Text style={styles.contactDetails}> Mobiliario e equipamentos disponíveis no alojamento: </Text>
             
-            <Text style={styles.contactDetails}> Geladeira: {geladeira}<CheckBox disabled={false} value={true}/> </Text>
-            <Text style={styles.contactDetails}> Cama: {furniture.Cama} <CheckBox disabled={false} value={true}/> </Text>
-            <Text style={styles.contactDetails}> Fogao: {furniture.Fogao} <CheckBox disabled={false} value={true}/> </Text>
-            <Text style={styles.contactDetails}> Armario: {furniture.Armario}<CheckBox disabled={false} value={true}/>  </Text>
-            <Text style={styles.contactDetails}> Mesa: {furniture.Mesa} <CheckBox disabled={false} value={true}/> </Text>
-            <Text style={styles.contactDetails}> Microondas: {furniture.Microondas} <CheckBox disabled={false} value={true}/> </Text>
-            <Text style={styles.contactDetails}> TV: {furniture.TV} <CheckBox disabled={false} value={true}/> </Text>
-            <Text style={styles.contactDetails}> GuardaRoupa: {furniture.GuardaRoupa} <CheckBox disabled={false} value={true}/> </Text>
-            <Text style={styles.contactDetails}> MaquinaLava: {furniture.MaquinaLava} <CheckBox disabled={false} value={true}/> </Text>
+            <Text style={styles.contactDetails}> Geladeira: {geladeira} </Text>
+            <Text style={styles.contactDetails}> Cama: {furniture.Cama} </Text>
+            <Text style={styles.contactDetails}> Fogao: {furniture.Fogao} </Text> 
+            <Text style={styles.contactDetails}> Armario: {furniture.Armario} </Text> 
+            <Text style={styles.contactDetails}> Mesa: {furniture.Mesa} </Text>
+            <Text style={styles.contactDetails}> Microondas: {furniture.Microondas} </Text>
+            <Text style={styles.contactDetails}> TV: {furniture.TV} </Text> 
+            <Text style={styles.contactDetails}> GuardaRoupa: {furniture.GuardaRoupa} </Text> 
+            <Text style={styles.contactDetails}> MaquinaLava: {furniture.MaquinaLava} </Text>
           <Text style={styles.contactDetails}> Tipo de banheiro: {type_bathroom} </Text>
           <Text style={styles.contactDetails}> Área do alojamento (em m²): {area} </Text>
           <FlatList
@@ -76,7 +76,7 @@ export default class HabitationDetailsScreen extends React.Component {
         <View style={styles.button} >
           <Button title="Voltar" onPress={() => navigate('HabitationList')} />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
   },
   contactDetails: {
     fontSize: 16,
-    height: 44,
   },
   button: {
     padding: 15
