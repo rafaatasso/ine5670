@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StyleSheet, Button, Linking, FlatList, Image} from 'react-native';
-import { Platform } from 'react-native';
- 
+import { Platform, Text, View, ScrollView, StyleSheet, Button, Linking, FlatList, Image } from 'react-native';
+
 export default class HabitationDetailsScreen extends React.Component {
   static navigationOptions = {
     title: 'Dados dos Imóveis',
@@ -20,7 +19,6 @@ export default class HabitationDetailsScreen extends React.Component {
     type_habitations: contact.type_habitations,
     type_rooms: contact.type_rooms,
     furniture: contact.furniture,
-    geladeira: contact.furniture.geladeira,
     type_bathroom: contact.type_bathroom,
     area: contact.area,
     photo: contact.photo,
@@ -35,57 +33,59 @@ export default class HabitationDetailsScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     const { name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations, geladeira } = this.state;
+    const mapUrl = Platform.select({
+      ios: `maps:0,0?q=${latitude},${longitude}`,
+      default: `geo:0,0?q=${latitude},${longitude}`
+    });
 
     return (
-      <ScrollView>
-        <View style={styles.container}>
+      <View style={styles.container}>
           <Text style={styles.contactName}>{name}</Text>
           <Text style={styles.contactDetails}>Quantidade de habitacoes: {qtd_rooms}</Text>
           <Text style={styles.contactDetails}>Endereco: {address}</Text>
-          <Text style={styles.contactName}>MUDAR PARA MAP:</Text>
-          <Text style={styles.contactDetails}>Latitude: {latitude}</Text>
-          <Text style={styles.contactDetails}>Longitude: {longitude}</Text>
-          <Text style={styles.contactDetails}>Valor do aluguel (R$) {vl_total}</Text>
+          <View style={styles.button} >
+            <Button onPress={() => Linking.openURL(`${mapUrl}`) }
+              title="Ver no Mapa" />
+          </View>
+          <Text style={styles.contactDetails}>Valor do aluguel: R$ {vl_total},00</Text>
           <Text style={styles.contactDetails}>Tipo de moradia: {type_habitations}</Text>
           <Text style={styles.contactDetails}>Tipo de alojamento: {type_rooms}</Text>
           
           <Text style={styles.contactDetails}>Mobiliario e equipamentos disponíveis no alojamento:</Text>
-            
-            <Text style={styles.contactDetails}>Geladeira: {geladeira}</Text>
-            <Text style={styles.contactDetails}>Cama: {furniture.Cama}</Text>
-            <Text style={styles.contactDetails}>Fogao: {furniture.Fogao}</Text> 
-            <Text style={styles.contactDetails}>Armario: {furniture.Armario}</Text> 
-            <Text style={styles.contactDetails}>Mesa: {furniture.Mesa}</Text>
-            <Text style={styles.contactDetails}>Microondas: {furniture.Microondas}</Text>
-            <Text style={styles.contactDetails}>TV: {furniture.TV}</Text> 
-            <Text style={styles.contactDetails}>GuardaRoupa: {furniture.GuardaRoupa}</Text> 
-            <Text style={styles.contactDetails}>MaquinaLava: {furniture.MaquinaLava}</Text>
+          <View style={styles.underTopic}>
+            <FlatList
+              data={furniture}
+              renderItem={({item}) => <Text style={styles.contactDetails}>👍 {item.name}</Text> }
+            />
+          </View>       
           <Text style={styles.contactDetails}>Tipo de banheiro: {type_bathroom}</Text>
           <Text style={styles.contactDetails}>Área do alojamento (em m²): {area}</Text>
           <Text style={styles.contactDetails}>Descrição: {description}</Text>
           <Text style={styles.contactDetails}>Outras informações: {more_informations}</Text>
 
+          <View style={styles.photo}>
           <FlatList
             data={photo}
             renderItem={({item}) =>  <Image source={{uri: item.link}} style={styles.image} />   }
           />
+          </View>
+
           <View style={styles.button} >
             <Button onPress={() => Linking.openURL(`${video}`) }
               title="Veja o vídeo" />
           </View>
-        </View>
-        <View style={styles.button} >
+           <View style={styles.button} >
             <Button onPress={() => Linking.openURL(`mailto:${email}`) }
               title="Enviar E-mail" />
-        </View>
-        <View style={styles.button} >
-          <Button onPress={() => Linking.openURL(`tel:${phone}`) }
-            title="Ligar" />
-        </View>
+          </View>
+          <View style={styles.button} >
+            <Button onPress={() => Linking.openURL(`tel:${phone}`) }
+              title="Ligar" />
+          </View>
         <View style={styles.button} >
           <Button title="Voltar" onPress={() => navigate('HabitationList')} />
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -102,13 +102,23 @@ const styles = StyleSheet.create({
   },
   contactDetails: {
     fontSize: 16,
+    paddingTop: '2vh',
+    textAlign: 'justify'
   },
   button: {
     padding: 15,
     backgroundColor: '#FFFFFF'
   },
   image: {
-    height: 160,
-    width: 160
+    margin: '2vh',
+    height: '80vw',
+    width: '80vw'
+  },
+  photo: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  underTopic: {
+    paddingLeft: '3vw'
   }
 });

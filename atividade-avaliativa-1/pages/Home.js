@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 60,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
+    height: '100vh'
   },
   logo: {
     height: 160,

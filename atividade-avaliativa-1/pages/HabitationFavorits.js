@@ -23,7 +23,8 @@ export default class HabitationDetailsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
+    height: '100vh'
   },
   button: {
     padding: 15,

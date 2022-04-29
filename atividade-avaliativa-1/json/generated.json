@@ -12,15 +12,19 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": true,
-                "Cama": false,
-                "Fogao": false,
-                "Armario": true,
-                "Mesa": true,
-                "Microondas": false,
-                "TV": true,
-                "GuardaRoupa": false,
-                "MaquinaLavar": false
+                "name": "Geladeira"
+            },
+            {
+                "id": 1,
+                "name": "Armário"
+            },
+            {
+                "id": 2,
+                "name": "Mesa"
+            },
+            {
+                "id": 3,
+                "name": "TV"
             }
         ],
         "type_bathroom": "Privado",
@@ -50,15 +54,23 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": false,
-                "Cama": false,
-                "Fogao": true,
-                "Armario": true,
-                "Mesa": true,
-                "Microondas": true,
-                "TV": false,
-                "GuardaRoupa": true,
-                "MaquinaLavar": false
+                "name": "Fogão"
+            },
+            {
+                "id": 1,
+                "name": "Armário"
+            },
+            {
+                "id": 2,
+                "name": "Mesa"
+            },
+            {
+                "id": 3,
+                "name": "Microondas"
+            },
+            {
+                "id": 4,
+                "name": "Guarda Roupa"
             }
         ],
         "type_bathroom": "Compartilhado",
@@ -88,15 +100,23 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": true,
-                "Cama": false,
-                "Fogao": true,
-                "Armario": true,
-                "Mesa": false,
-                "Microondas": true,
-                "TV": false,
-                "GuardaRoupa": true,
-                "MaquinaLavar": false
+                "name": "Geladeira"
+            },
+            {
+                "id": 1,
+                "name": "Fogão"
+            },
+            {
+                "id": 2,
+                "name": "Armário"
+            },
+            {
+                "id": 3,
+                "name": "Microondas"
+            },
+            {
+                "id": 4,
+                "name": "Guarda Roupa"
             }
         ],
         "type_bathroom": "Privado",
@@ -126,15 +146,19 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": false,
-                "Cama": false,
-                "Fogao": true,
-                "Armario": true,
-                "Mesa": false,
-                "Microondas": false,
-                "TV": true,
-                "GuardaRoupa": false,
-                "MaquinaLavar": true
+                "name": "Fogão"
+            },
+            {
+                "id": 1,
+                "name": "Armário"
+            },
+            {
+                "id": 2,
+                "name": "TV"
+            },
+            {
+                "id": 3,
+                "name": "Máquina de Lavar"
             }
         ],
         "type_bathroom": "Compartilhado",
@@ -164,15 +188,23 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": true,
-                "Cama": true,
-                "Fogao": true,
-                "Armario": false,
-                "Mesa": false,
-                "Microondas": true,
-                "TV": false,
-                "GuardaRoupa": true,
-                "MaquinaLavar": false
+                "name": "Geladeira"
+            },
+            {
+                "id": 1,
+                "name": "cama"
+            },
+            {
+                "id": 2,
+                "name": "Fogão"
+            },
+            {
+                "id": 3,
+                "name": "Microondas"
+            },
+            {
+                "id": 4,
+                "name": "Guarda Roupa"
             }
         ],
         "type_bathroom": "Privado",
@@ -202,15 +234,15 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": false,
-                "Cama": false,
-                "Fogao": false,
-                "Armario": true,
-                "Mesa": false,
-                "Microondas": false,
-                "TV": false,
-                "GuardaRoupa": true,
-                "MaquinaLavar": true
+                "name": "Armário"
+            },
+            {
+                "id": 1,
+                "name": "Guarda Roupa"
+            },
+            {
+                "id": 2,
+                "name": "Máquina de Lavar"
             }
         ],
         "type_bathroom": "Compartilhado",
@@ -240,15 +272,27 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": true,
-                "Cama": true,
-                "Fogao": false,
-                "Armario": true,
-                "Mesa": true,
-                "Microondas": true,
-                "TV": false,
-                "GuardaRoupa": true,
-                "MaquinaLavar": false
+                "name": "Geladeira"
+            },
+            {
+                "id": 1,
+                "name": "cama"
+            },
+            {
+                "id": 2,
+                "name": "Armário"
+            },
+            {
+                "id": 3,
+                "name": "Mesa"
+            },
+            {
+                "id": 4,
+                "name": "Microondas"
+            },
+            {
+                "id": 5,
+                "name": "Guarda Roupa"
             }
         ],
         "type_bathroom": "Privado",
@@ -278,15 +322,19 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": true,
-                "Cama": true,
-                "Fogao": false,
-                "Armario": true,
-                "Mesa": false,
-                "Microondas": false,
-                "TV": false,
-                "GuardaRoupa": true,
-                "MaquinaLavar": false
+                "name": "Geladeira"
+            },
+            {
+                "id": 1,
+                "name": "cama"
+            },
+            {
+                "id": 2,
+                "name": "Armário"
+            },
+            {
+                "id": 3,
+                "name": "Guarda Roupa"
             }
         ],
         "type_bathroom": "Compartilhado",
@@ -316,15 +364,23 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": true,
-                "Cama": true,
-                "Fogao": true,
-                "Armario": false,
-                "Mesa": true,
-                "Microondas": false,
-                "TV": true,
-                "GuardaRoupa": false,
-                "MaquinaLavar": false
+                "name": "Geladeira"
+            },
+            {
+                "id": 1,
+                "name": "cama"
+            },
+            {
+                "id": 2,
+                "name": "Fogão"
+            },
+            {
+                "id": 3,
+                "name": "Mesa"
+            },
+            {
+                "id": 4,
+                "name": "TV"
             }
         ],
         "type_bathroom": "Privado",
@@ -358,15 +414,31 @@
         "furniture": [
             {
                 "id": 0,
-                "geladeira": true,
-                "Cama": false,
-                "Fogao": true,
-                "Armario": true,
-                "Mesa": true,
-                "Microondas": true,
-                "TV": true,
-                "GuardaRoupa": true,
-                "MaquinaLavar": false
+                "name": "Geladeira"
+            },
+            {
+                "id": 1,
+                "name": "Fogão"
+            },
+            {
+                "id": 2,
+                "name": "Armário"
+            },
+            {
+                "id": 3,
+                "name": "Mesa"
+            },
+            {
+                "id": 4,
+                "name": "Microondas"
+            },
+            {
+                "id": 5,
+                "name": "TV"
+            },
+            {
+                "id": 6,
+                "name": "Guarda Roupa"
             }
         ],
         "type_bathroom": "Compartilhado",
