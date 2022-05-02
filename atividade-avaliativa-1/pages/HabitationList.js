@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, ActivityIndicator, SafeAreaView, ScrollView, FlatList, TouchableOpacity,Image } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import Data from '../json/generated.json';
  
 export default class HabitationListScreen extends React.Component {
@@ -12,11 +13,11 @@ export default class HabitationListScreen extends React.Component {
     this.state = { isLoading: false }
   }
   
-  makeRemoteRequest = () => {
-  this.setState({
-    data: Data,
-  });
-  }
+  // makeRemoteRequest = () => {
+  // this.setState({
+  //   data: Data,
+  // });
+  // }
 
   render() {
     if(this.state.isLoading){
@@ -33,16 +34,23 @@ export default class HabitationListScreen extends React.Component {
         <FlatList
           data={Data}
           renderItem={({item}) =>
-          <TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item})}>
+          (<TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item})}>
+            <View style={styles.contactComponent}>
             <View style={styles.contact}>
               <View>
                 <Image source={{uri: item.photo[0].link}} style={styles.image}/>
               </View>
               <View>
-              <Text style={styles.text}> {item.name} </Text>
+                <Text style={styles.text}>{item.name} </Text>
+                <Text style={styles.text}>R$ {item.vl_total},00</Text>
               </View>
             </View>
-          </TouchableOpacity>}
+            <View>
+              <Feather name='star' size={15} color='yellow' onPress={() => navigate('HabitationFavorits', {contact: item} )}/>
+            </View>
+            </View>
+          </TouchableOpacity>)
+          }
         />
         <Button title="Voltar" onPress={() => navigate('Home')} />
       </ScrollView>
@@ -56,6 +64,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     height: '100vh'
   },
+  contactComponent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '2vh'
+  },
   contact: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -63,10 +77,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    padding: '1vh'
+    padding: '1vh',
+    marginLeft: '2vw'
   },
   image: {
-    borderRadius: '50%',
+    borderRadius: '20vw',
     height: '20vw',
     width: '20vw'
   }

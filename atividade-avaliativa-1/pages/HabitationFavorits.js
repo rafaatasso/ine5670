@@ -7,8 +7,6 @@ export default class HabitationDetailsScreen extends React.Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
-
     return (
       <ScrollView style={styles.container}>
         <Text>Oi</Text>

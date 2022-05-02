@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Platform, Text, View, ScrollView, StyleSheet, Button, Linking, FlatList, Image } from 'react-native';
+import { Platform, Text, View, StyleSheet, Button, Linking, FlatList, Image } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 export default class HabitationDetailsScreen extends React.Component {
   static navigationOptions = {
@@ -10,6 +11,7 @@ export default class HabitationDetailsScreen extends React.Component {
   super(props);
   let contact = props.navigation.getParam('contact');
   this.state = {
+    index: contact.index,
     name: contact.name,
     qtd_rooms: contact.qtd_rooms,
     address: contact.address,
@@ -32,7 +34,7 @@ export default class HabitationDetailsScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const { name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations, geladeira } = this.state;
+    const { index, name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations } = this.state;
     const mapUrl = Platform.select({
       ios: `maps:0,0?q=${latitude},${longitude}`,
       default: `geo:0,0?q=${latitude},${longitude}`
@@ -40,7 +42,11 @@ export default class HabitationDetailsScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-          <Text style={styles.contactName}>{name}</Text>
+          <View style={styles.contactComponent}>
+            <Text style={styles.contactName}>{name}</Text>
+            <Feather name='star' size={15} color='yellow' onPress={() => AsyncStorage.setItem(index, 'Favorited')}/>
+          </View>
+          <Feather name='heart' size={15} color='red' onPress={() => AsyncStorage.getAllKeys()}/>
           <Text style={styles.contactDetails}>Quantidade de habitacoes: {qtd_rooms}</Text>
           <Text style={styles.contactDetails}>Endereco: {address}</Text>
           <View style={styles.button} >
@@ -95,10 +101,15 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: '#FFFFFF'
   },
+  contactComponent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '2vh'
+  },
   contactName: {
     fontSize: 18,
     fontWeight: 'bold',
-    height: 44,
   },
   contactDetails: {
     fontSize: 16,
