@@ -70,7 +70,6 @@ export default class HabitationDetailsScreen extends React.Component {
       <View style={styles.container}>
           <View style={styles.contactComponent}>
             <Text style={styles.contactName}>{name}</Text>
-            <Text style={styles.contactName}>{this.state.index}</Text>
             <Icon
               type="material-community"
               name={this.state.isFavorite ? 'heart' : 'heart-outline'} 
@@ -155,8 +154,8 @@ const styles = StyleSheet.create({
   },
   image: {
     margin: 2,
-    height: 100,
-    width: 100
+    height: 300,
+    width: 300
   },
   photo: {
     alignItems: 'center',
