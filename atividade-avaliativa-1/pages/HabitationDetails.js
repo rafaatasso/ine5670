@@ -48,14 +48,6 @@ export default class HabitationDetailsScreen extends React.Component {
       this.setState({isFavorite: true});
     }
   }
-  saveData(){        
-    AsyncStorage.setItem(this.state.index, 'favorite');
-    this.setState({isFavorite: true});
-  }
-  removeData(){        
-    AsyncStorage.removeItem(this.state.index);
-    this.setState({isFavorite: false});
-  }
   render() {
     const { navigate } = this.props.navigation;
     const { index, name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations } = this.state;
