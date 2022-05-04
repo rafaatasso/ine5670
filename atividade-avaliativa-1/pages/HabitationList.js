@@ -12,12 +12,6 @@ export default class HabitationListScreen extends React.Component {
     super(props);
     this.state = { isLoading: false }
   }
-  
-  // makeRemoteRequest = () => {
-  // this.setState({
-  //   data: Data,
-  // });
-  // }
 
   render() {
     if(this.state.isLoading){
@@ -46,7 +40,7 @@ export default class HabitationListScreen extends React.Component {
               </View>
             </View>
             <View>
-              <Feather name='star' size={15} color='yellow' onPress={() => navigate('HabitationFavorits', {contact: item} )}/>
+              <Feather name='star' size={35} color='yellow' onPress={() => navigate('HabitationFavorits', {contact: item} )}/>
             </View>
             </View>
           </TouchableOpacity>)
@@ -62,27 +56,26 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     backgroundColor: '#FFFFFF',
-    height: '100vh'
   },
   contactComponent: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '2vh'
+    padding: 2
   },
   contact: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: '2vh'
+    padding: 5
   },
   text: {
     fontSize: 18,
-    padding: '1vh',
-    marginLeft: '2vw'
+    padding: 1,
+    marginLeft: 5
   },
   image: {
-    borderRadius: '20vw',
-    height: '20vw',
-    width: '20vw'
+    borderRadius: 50,
+    height: 80,
+    width: 80
   }
 })

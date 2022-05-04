@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Platform, Text, View, StyleSheet, Button, Linking, FlatList, Image } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import FavoriteButton from '../components/favoriteButton';
+import { Icon } from 'react-native-elements';
 
 export default class HabitationDetailsScreen extends React.Component {
   static navigationOptions = {
@@ -28,10 +31,31 @@ export default class HabitationDetailsScreen extends React.Component {
     video: contact.video,
     phone: contact.phone,
     email: contact.email,
-    more_informations: contact.more_informations
+    more_informations: contact.more_informations,
+    isFavorite: false
     };
   }
-
+  displayData(){
+    let info = AsyncStorage.getItem(this.state.index);
+    console.log(info);
+  }
+  statusFavorite(){
+    if(this.state.isFavorite){
+      AsyncStorage.removeItem(this.state.index);
+      this.setState({isFavorite: false});
+    } else {
+      AsyncStorage.setItem(this.state.index, 'favorite');
+      this.setState({isFavorite: true});
+    }
+  }
+  saveData(){        
+    AsyncStorage.setItem(this.state.index, 'favorite');
+    this.setState({isFavorite: true});
+  }
+  removeData(){        
+    AsyncStorage.removeItem(this.state.index);
+    this.setState({isFavorite: false});
+  }
   render() {
     const { navigate } = this.props.navigation;
     const { index, name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations } = this.state;
@@ -39,16 +63,22 @@ export default class HabitationDetailsScreen extends React.Component {
       ios: `maps:0,0?q=${latitude},${longitude}`,
       default: `geo:0,0?q=${latitude},${longitude}`
     });
-
+    
     return (
       <View style={styles.container}>
           <View style={styles.contactComponent}>
             <Text style={styles.contactName}>{name}</Text>
-            <Feather name='star' size={15} color='yellow' onPress={() => AsyncStorage.setItem(index, 'Favorited')}/>
+            <Icon
+              type="material-community"
+              name={this.state.isFavorite ? 'heart' : 'heart-outline'} 
+              size={35} 
+              color={this.state.isFavorite ? 'red' : 'yellow'} 
+              onPress={() => this.statusFavorite()}
+              underlayColor="transparent"
+            />
           </View>
-          <Feather name='heart' size={15} color='red' onPress={() => AsyncStorage.getAllKeys()}/>
-          <Text style={styles.contactDetails}>Quantidade de habitacoes: {qtd_rooms}</Text>
-          <Text style={styles.contactDetails}>Endereco: {address}</Text>
+          <Text style={styles.contactDetails}>Quantidade de habitações: {qtd_rooms}</Text>
+          <Text style={styles.contactDetails}>Endereço: {address}</Text>
           <View style={styles.button} >
             <Button onPress={() => Linking.openURL(`${mapUrl}`) }
               title="Ver no Mapa" />
@@ -57,7 +87,7 @@ export default class HabitationDetailsScreen extends React.Component {
           <Text style={styles.contactDetails}>Tipo de moradia: {type_habitations}</Text>
           <Text style={styles.contactDetails}>Tipo de alojamento: {type_rooms}</Text>
           
-          <Text style={styles.contactDetails}>Mobiliario e equipamentos disponíveis no alojamento:</Text>
+          <Text style={styles.contactDetails}>Mobiliário e equipamentos disponíveis no alojamento:</Text>
           <View style={styles.underTopic}>
             <FlatList
               data={furniture}
@@ -105,7 +135,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '2vh'
+    padding: 2
   },
   contactName: {
     fontSize: 18,
@@ -113,7 +143,7 @@ const styles = StyleSheet.create({
   },
   contactDetails: {
     fontSize: 16,
-    paddingTop: '2vh',
+    paddingTop: 2,
     textAlign: 'justify'
   },
   button: {
@@ -121,15 +151,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF'
   },
   image: {
-    margin: '2vh',
-    height: '80vw',
-    width: '80vw'
+    margin: 2,
+    height: 80,
+    width: 80
   },
   photo: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   underTopic: {
-    paddingLeft: '3vw'
+    paddingLeft: 3
   }
 });

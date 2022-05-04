@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Text, View, ScrollView, Button, StyleSheet} from 'react-native';
  
 export default class HabitationDetailsScreen extends React.Component {
@@ -6,7 +6,12 @@ export default class HabitationDetailsScreen extends React.Component {
     title: 'Dados dos Imóveis',
   };
 
+  constructor(props){
+    super(props);
+  }
+
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <ScrollView style={styles.container}>
         <Text>Oi</Text>

@@ -8,8 +8,9 @@ export default class HomeScreen extends React.Component {
 
   render() {
     const {navigate} = this.props.navigation;
+
     return (
-      <View>
+      <View style={styles.phone} >
         <View style={styles.container}>
           <Image style={styles.logo} source={require('../assets/image.png')} />
           <Text style={styles.title} >Moradias UFSC</Text>
@@ -34,7 +35,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 60,
     backgroundColor: '#FFFFFF',
-    height: '100vh'
   },
   logo: {
     height: 160,
