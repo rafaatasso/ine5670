@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Platform, Text, View, StyleSheet, Button, Linking, FlatList, Image } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import FavoriteButton from '../components/favoriteButton';
 import { Icon } from 'react-native-elements';
 
 export default class HabitationDetailsScreen extends React.Component {
@@ -32,13 +30,24 @@ export default class HabitationDetailsScreen extends React.Component {
     phone: contact.phone,
     email: contact.email,
     more_informations: contact.more_informations,
-    isFavorite: false
+    isFavorite: false,
+    getValue: '',
     };
+  this.displayData();
+  // AsyncStorage.clear(); // It clear all infos from AsyncStorage
   }
+
   displayData(){
-    let info = AsyncStorage.getItem(this.state.index);
-    console.log(info);
+    AsyncStorage.getItem(this.state.index).then(
+      value => {
+        this.setState({ getValue: value });
+        console.log(this.state.getValue);
+        if (this.state.getValue == 'favorite') {
+          this.setState({ isFavorite: true });
+        }
+      });
   }
+
   statusFavorite(){
     if(this.state.isFavorite){
       AsyncStorage.removeItem(this.state.index);
@@ -48,9 +57,10 @@ export default class HabitationDetailsScreen extends React.Component {
       this.setState({isFavorite: true});
     }
   }
+
   render() {
     const { navigate } = this.props.navigation;
-    const { index, name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations } = this.state;
+    const { name, qtd_rooms, address, latitude, longitude, vl_total, type_habitations, type_rooms, furniture, type_bathroom, area, photo, description, video, phone, email, more_informations } = this.state;
     const mapUrl = Platform.select({
       ios: `maps:0,0?q=${latitude},${longitude}`,
       default: `geo:0,0?q=${latitude},${longitude}`
@@ -60,6 +70,7 @@ export default class HabitationDetailsScreen extends React.Component {
       <View style={styles.container}>
           <View style={styles.contactComponent}>
             <Text style={styles.contactName}>{name}</Text>
+            <Text style={styles.contactName}>{this.state.index}</Text>
             <Icon
               type="material-community"
               name={this.state.isFavorite ? 'heart' : 'heart-outline'} 
@@ -144,8 +155,8 @@ const styles = StyleSheet.create({
   },
   image: {
     margin: 2,
-    height: 80,
-    width: 80
+    height: 100,
+    width: 100
   },
   photo: {
     alignItems: 'center',
