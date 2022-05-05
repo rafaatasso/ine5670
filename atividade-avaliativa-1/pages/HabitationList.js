@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, ActivityIndicator, SafeAreaView, ScrollView, FlatList, TouchableOpacity,Image } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { Text, View, StyleSheet, Button, ActivityIndicator, ScrollView, FlatList, TouchableOpacity,Image } from 'react-native';
 import Data from '../json/generated.json';
  
 export default class HabitationListScreen extends React.Component {
@@ -10,7 +9,9 @@ export default class HabitationListScreen extends React.Component {
  
   constructor(props){
     super(props);
-    this.state = { isLoading: false }
+    this.state = { 
+      isLoading: false,
+    };
   }
 
   render() {
@@ -27,6 +28,7 @@ export default class HabitationListScreen extends React.Component {
       <ScrollView style={styles.container}>
         <FlatList
           data={Data}
+          keyExtractor={item => item.index}
           renderItem={({item}) =>
           (<TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item})}>
             <View style={styles.contactComponent}>
@@ -40,7 +42,6 @@ export default class HabitationListScreen extends React.Component {
               </View>
             </View>
             <View>
-              <Feather name='star' size={35} color='yellow' onPress={() => navigate('HabitationFavorits', {contact: item} )}/>
             </View>
             </View>
           </TouchableOpacity>)

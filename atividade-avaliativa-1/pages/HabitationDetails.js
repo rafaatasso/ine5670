@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Platform, Text, View, StyleSheet, Button, Linking, FlatList, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Icon } from 'react-native-elements';
@@ -41,7 +41,6 @@ export default class HabitationDetailsScreen extends React.Component {
     AsyncStorage.getItem(this.state.index).then(
       value => {
         this.setState({ getValue: value });
-        console.log(this.state.getValue);
         if (this.state.getValue == 'favorite') {
           this.setState({ isFavorite: true });
         }
