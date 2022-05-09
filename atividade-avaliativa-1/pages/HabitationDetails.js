@@ -86,9 +86,11 @@ export default class HabitationDetailsScreen extends React.Component {
           </View>
 
           <View style={styles.photo}>
-            <ScrollView horizontal={true}
-            showsHorizontalScrollIndicator={false}>
-              {photo.map((item => <Image source={{uri: item.link}} style={styles.image} />))}
+            <ScrollView 
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            >
+              {photo.map((item => <Image key={item.id} source={{uri: item.link}} style={styles.image} />))}
             </ScrollView>
           </View>
 
@@ -107,9 +109,11 @@ export default class HabitationDetailsScreen extends React.Component {
           
           <Text style={styles.contactDetails}><B>Mobiliário e equipamentos disponíveis no alojamento:</B></Text>
           <View style={styles.underTopic}>
-            <ScrollView horizontal={false}
-            showsHorizontalScrollIndicator={false}>
-              {furniture.map((item => <Text style={styles.contactDetailsItem}>✔️ {item.name}</Text>))}
+            <ScrollView
+              horizontal={false}
+              showsHorizontalScrollIndicator={false}
+            >
+              {furniture.map((item => <Text key={item.id} style={styles.contactDetailsItem}>✔️ {item.name}</Text>))}
             </ScrollView>
           </View>       
           
