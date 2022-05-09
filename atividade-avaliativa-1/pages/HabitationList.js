@@ -30,7 +30,7 @@ export default class HabitationListScreen extends React.Component {
           data={Data}
           keyExtractor={item => item.index}
           renderItem={({item}) =>
-          (<TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item})}>
+          (<TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item, local: 'list'})}>
             <View style={styles.contactComponent}>
               <View style={styles.contact}>
                 <View>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, Text, View, StyleSheet, Button, Linking, FlatList, Image } from 'react-native';
+import { Platform, Text, View, StyleSheet, Button, Linking, FlatList, Image, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Icon } from 'react-native-elements';
 
@@ -11,6 +11,7 @@ export default class HabitationDetailsScreen extends React.Component {
   constructor(props) {
   super(props);
   let contact = props.navigation.getParam('contact');
+  let local = props.navigation.getParam('local');
   this.state = {
     index: contact.index,
     name: contact.name,
@@ -32,16 +33,17 @@ export default class HabitationDetailsScreen extends React.Component {
     more_informations: contact.more_informations,
     isFavorite: false,
     getValue: '',
+    local: local
     };
   this.displayData();
-  // AsyncStorage.clear(); // It clear all infos from AsyncStorage
+  // AsyncStorage.clear(); // It clear all infos from AsyncStorage 
   }
 
   displayData(){
-    AsyncStorage.getItem(this.state.index).then(
+    AsyncStorage.getItem('id'+this.state.index).then(
       value => {
         this.setState({ getValue: value });
-        if (this.state.getValue == 'favorite') {
+        if (this.state.getValue != null) {
           this.setState({ isFavorite: true });
         }
       });
@@ -49,10 +51,13 @@ export default class HabitationDetailsScreen extends React.Component {
 
   statusFavorite(){
     if(this.state.isFavorite){
-      AsyncStorage.removeItem(this.state.index);
+      AsyncStorage.removeItem('id'+this.state.index);
       this.setState({isFavorite: false});
     } else {
-      AsyncStorage.setItem(this.state.index, 'favorite');
+      AsyncStorage.setItem(
+        'id'+this.state.index,
+        JSON.stringify(this.state)
+        );
       this.setState({isFavorite: true});
     }
   }
@@ -67,7 +72,7 @@ export default class HabitationDetailsScreen extends React.Component {
     const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
     
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
           <View style={styles.contactComponent}>
             <Text style={styles.contactName}>{name}</Text>
             <Icon
@@ -81,10 +86,10 @@ export default class HabitationDetailsScreen extends React.Component {
           </View>
 
           <View style={styles.photo}>
-            <FlatList
-              data={photo}
-              renderItem={({item}) =>  <Image source={{uri: item.link}} style={styles.image} />   }
-            />
+            <ScrollView horizontal={true}
+            showsHorizontalScrollIndicator={false}>
+              {photo.map((item => <Image source={{uri: item.link}} style={styles.image} />))}
+            </ScrollView>
           </View>
 
           <Text style={styles.contactDetails}><B>Valor do aluguel:</B> R$ {vl_total},00</Text>
@@ -102,15 +107,15 @@ export default class HabitationDetailsScreen extends React.Component {
           
           <Text style={styles.contactDetails}><B>Mobiliário e equipamentos disponíveis no alojamento:</B></Text>
           <View style={styles.underTopic}>
-            <FlatList
-              data={furniture}
-              renderItem={({item}) => <Text style={styles.contactDetails}>✔️ {item.name}</Text> }
-            />
+            <ScrollView horizontal={false}
+            showsHorizontalScrollIndicator={false}>
+              {furniture.map((item => <Text style={styles.contactDetailsItem}>✔️ {item.name}</Text>))}
+            </ScrollView>
           </View>       
           
           <Text style={styles.contactDetails}><B>Área do alojamento (em m²):</B> {area}</Text>
           <Text style={styles.contactDetails}><B>Descrição:</B> {description}</Text>
-          <Text style={styles.contactDetails}><B>Outras informações:</B> {more_informations}</Text>
+          <Text style={styles.contactDetailsLast}><B>Outras informações:</B> {more_informations}</Text>
 
 
           <View style={styles.button} >
@@ -126,9 +131,10 @@ export default class HabitationDetailsScreen extends React.Component {
               title="Ligar" />
           </View>
         <View style={styles.button} >
-          <Button color='#003893' title="Voltar" onPress={() => navigate('HabitationList')} />
+          <Button color='#003893' title="Voltar" onPress={() => {this.state.local == 'list' ? navigate('HabitationList') : navigate('HabitationFavorits')}} />
         </View>
-      </View>
+        <View style={styles.button}></View>
+      </ScrollView>
     );
   }
 }
@@ -136,7 +142,8 @@ export default class HabitationDetailsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
+    flex: 1
   },
   contactComponent: {
     flexDirection: 'row',
@@ -150,7 +157,17 @@ const styles = StyleSheet.create({
   },
   contactDetails: {
     fontSize: 16,
+    paddingTop: 7,
+    textAlign: 'justify'
+  },
+  contactDetailsLast: {
+    fontSize: 16,
+    textAlign: 'justify'
+  },
+  contactDetailsItem: {
+    fontSize: 16,
     paddingTop: 5,
+    paddingLeft: 20,
     textAlign: 'justify'
   },
   button: {
@@ -164,7 +181,8 @@ const styles = StyleSheet.create({
     borderRadius: 25
   },
   photo: {
-    padding: 20,
+    paddingTop: 15,
+    paddingBottom: 15,
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -1,30 +1,28 @@
 import * as React from 'react';
-import { Text, View, Button, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, Button, StyleSheet, TouchableOpacity, FlatList, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Data from '../json/generated.json';
- 
+
 export default class HabitationDetailsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Dados dos Imóveis',
+    title: 'Favoritos',
   };
 
   constructor(props){
     super(props);
     this.state = {
       allIndexFavorites: [],
-      isLoading: false,
     };
     this.display();
-    console.log(this.state.allIndexFavorites);
   }
 
   display(){
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, stores) => {
         stores.map((result, i, store) => {
-          let key = store[i][0];
-          // this.setState({ allIndexFavorites: allIndexFavorites.push({'name': key}) })
-          this.state.allIndexFavorites.push({'name': key});
+          let key = store[i][1];
+          let allIndexFavorites = this.state.allIndexFavorites;
+          allIndexFavorites.push(JSON.parse(key));
+          this.setState({ allIndexFavorites });
         });
       });
     });
@@ -32,49 +30,29 @@ export default class HabitationDetailsScreen extends React.Component {
 
   render() {
 
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator size="large" color="blue" />
-        </View>
-      )
-    }
- 
     const {navigate} = this.props.navigation;
 
     return (
       <View style={styles.container}>
-        <Text onPress={() => {{console.log(this.state.allIndexFavorites)}}}>oioioioi</Text>
         <FlatList
-            data={this.state.allIndexFavorites}
-            renderItem={(ind) => (
-              <Text>{ind.name}</Text>
-            )}
+          data={this.state.allIndexFavorites}
+          keyExtractor={item => item.index}
+          renderItem={({item}) =>
+          (<TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item, local: 'fav'})}>
+            <View style={styles.contactComponent}>
+              <View style={styles.contact}>
+                <View>
+                  <Image source={{uri: item.photo[0].link}} style={styles.image}/>
+                </View>
+                <View>
+                  <Text style={styles.text_bold}>{item.name} </Text>
+                  <Text style={styles.text}>R$ {item.vl_total},00</Text>
+                </View>
+              </View>
+            </View>
+          </TouchableOpacity>)
+          }
         />
-        {/* <Text onPress={() => {{console.log(allIndexFavorites)}}}>oioioioi</Text> */}
-        
-        {/* // (
-        //   <FlatList
-        //     data={Data}
-        //     renderItem={({item}) =>
-        //     (<TouchableOpacity onPress={ () => navigate('HabitationDetails', {contact: item})}>
-        //       <View style={styles.contactComponent}>
-        //       <View style={styles.contact}>
-        //         <View>
-        //           <Image source={{uri: item.photo[0].link}} style={styles.image}/>
-        //         </View>
-        //         <View>
-        //           <Text style={styles.text}>{item.name} </Text>
-        //           <Text style={styles.text}>R$ {item.vl_total},00</Text>
-        //         </View>
-        //       </View>
-        //       <View>
-        //       </View>
-        //       </View>
-        //     </TouchableOpacity>)
-        //     }
-        //   />
-        // ) */}
         <View style={styles.button} >
           <Button color='#003893' title="Voltar" onPress={() => navigate('Home')} />
         </View>
@@ -87,15 +65,44 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     backgroundColor: '#FFFFFF',
-    height: '100vh'
+    flex: 1
   },
-  button: {
-    padding: 15,
-    backgroundColor: '#FFFFFF',
+  contactComponent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 2,
+    backgroundColor: '#FFF',
+    marginBottom: 10,
+    borderRadius: 20,
+    shadowColor: '#FDD927',
+    shadowOffset:{ width: 0,
+    height: 2,
+    },
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-  black: {
-    backgroundColor: 'black',
-    height:100,
-    color: 'white',
+  contact: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+  },
+  text: {
+    fontSize: 18,
+    padding: 2,
+    marginLeft: 10,
+  },
+  text_bold: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    padding: 2,
+    marginLeft: 10,
+  },
+  image: {
+    borderRadius: 50,
+    height: 80,
+    width: 80,
+    borderWidth: 2,
+    borderColor: '#FDD927',
   }
 });
