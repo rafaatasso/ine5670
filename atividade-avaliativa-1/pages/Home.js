@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 60,
+    paddingTop: 15,
   },
   image: { 
     height: 200,
@@ -69,15 +69,6 @@ const styles = StyleSheet.create({
     color: '#1894f4',
   },
   button: {
-    padding: 10,
-    // backgroundColor: '#FFFFFF',
-    // borderRadius: 25,
-  },
-  // buttonPrimary: {
-  //   color: '#c3c3c3',
-  //   borderRadius: 25
-  // },
-  // buttonSecondary: {
-  //   color: '#000000'
-  // }
+    padding: 8,
+  }
 });

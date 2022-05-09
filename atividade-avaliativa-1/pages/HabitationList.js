@@ -9,19 +9,9 @@ export default class HabitationListScreen extends React.Component {
  
   constructor(props){
     super(props);
-    this.state = { 
-      isLoading: false,
-    };
   }
 
   render() {
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator size="large" color="blue" />
-        </View>
-      )
-    }
  
     const {navigate} = this.props.navigation;
     return(

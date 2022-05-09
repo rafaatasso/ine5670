@@ -34,7 +34,8 @@ export default class HabitationDetailsScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <FlatList
+        <View>
+          {this.state.allIndexFavorites[0] == null ? <Text style={styles.alert}>Sem nenhuma moradia favoritada!</Text> : <FlatList
           data={this.state.allIndexFavorites}
           keyExtractor={item => item.index}
           renderItem={({item}) =>
@@ -52,7 +53,9 @@ export default class HabitationDetailsScreen extends React.Component {
             </View>
           </TouchableOpacity>)
           }
-        />
+        />}
+        </View>
+        
         <View style={styles.button} >
           <Button color='#003893' title="Voltar" onPress={() => navigate('Home')} />
         </View>
@@ -65,7 +68,8 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     backgroundColor: '#FFFFFF',
-    flex: 1
+    flex: 1,
+    justifyContent: 'space-between',
   },
   contactComponent: {
     flexDirection: 'row',
@@ -86,6 +90,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 5,
+  },
+  alert: {
+    padding: 30,
+    fontWeight: 'bold',
+    fontSize: 24,
+    alignItems: 'center',
+    textAlign: 'center',
+    color: '#1894f4',
   },
   text: {
     fontSize: 18,
