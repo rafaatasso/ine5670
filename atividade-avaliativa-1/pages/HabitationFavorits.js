@@ -43,16 +43,15 @@ export default class HabitationDetailsScreen extends React.Component {
     const {navigate} = this.props.navigation;
 
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Text onPress={() => {{console.log(this.state.allIndexFavorites)}}}>oioioioi</Text>
-        {/* <FlatList
-            style={styles.black}
-            data={allIndexFavorites}
-            renderItem={({ind}) => (
+        <FlatList
+            data={this.state.allIndexFavorites}
+            renderItem={(ind) => (
               <Text>{ind.name}</Text>
             )}
         />
-        <Text onPress={() => {{console.log(allIndexFavorites)}}}>oioioioi</Text> */}
+        {/* <Text onPress={() => {{console.log(allIndexFavorites)}}}>oioioioi</Text> */}
         
         {/* // (
         //   <FlatList
@@ -79,7 +78,7 @@ export default class HabitationDetailsScreen extends React.Component {
         <View style={styles.button} >
           <Button title="Voltar" onPress={() => navigate('Home')} />
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
