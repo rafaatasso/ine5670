@@ -64,6 +64,7 @@ export default class HabitationDetailsScreen extends React.Component {
       ios: `maps:0,0?q=${latitude},${longitude}`,
       default: `geo:0,0?q=${latitude},${longitude}`
     });
+    const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
     
     return (
       <View style={styles.container}>
@@ -73,54 +74,59 @@ export default class HabitationDetailsScreen extends React.Component {
               type="material-community"
               name={this.state.isFavorite ? 'heart' : 'heart-outline'} 
               size={35} 
-              color={this.state.isFavorite ? 'red' : 'yellow'} 
+              color={this.state.isFavorite ? '#003893' : '#FDD927'} 
               onPress={() => this.statusFavorite()}
               underlayColor="transparent"
             />
           </View>
-          <Text style={styles.contactDetails}>Quantidade de habitações: {qtd_rooms}</Text>
-          <Text style={styles.contactDetails}>Endereço: {address}</Text>
+
+          <View style={styles.photo}>
+            <FlatList
+              data={photo}
+              renderItem={({item}) =>  <Image source={{uri: item.link}} style={styles.image} />   }
+            />
+          </View>
+
+          <Text style={styles.contactDetails}><B>Valor do aluguel:</B> R$ {vl_total},00</Text>
+          <Text style={styles.contactDetails}><B>Endereço:</B> {address}</Text>
+          <Text style={styles.contactDetails}><B>Tipo de moradia:</B> {type_habitations}</Text>
+          <Text style={styles.contactDetails}><B>Tipo de alojamento: </B>{type_rooms}</Text>
+          
           <View style={styles.button} >
-            <Button onPress={() => Linking.openURL(`${mapUrl}`) }
+            <Button color='#1894f4' onPress={() => Linking.openURL(`${mapUrl}`) }
               title="Ver no Mapa" />
           </View>
-          <Text style={styles.contactDetails}>Valor do aluguel: R$ {vl_total},00</Text>
-          <Text style={styles.contactDetails}>Tipo de moradia: {type_habitations}</Text>
-          <Text style={styles.contactDetails}>Tipo de alojamento: {type_rooms}</Text>
           
-          <Text style={styles.contactDetails}>Mobiliário e equipamentos disponíveis no alojamento:</Text>
+          <Text style={styles.contactDetails}><B>Quantidade de habitações:</B> {qtd_rooms}</Text>
+          <Text style={styles.contactDetails}><B>Tipo de banheiro:</B> {type_bathroom}</Text>
+          
+          <Text style={styles.contactDetails}><B>Mobiliário e equipamentos disponíveis no alojamento:</B></Text>
           <View style={styles.underTopic}>
             <FlatList
               data={furniture}
-              renderItem={({item}) => <Text style={styles.contactDetails}>👍 {item.name}</Text> }
+              renderItem={({item}) => <Text style={styles.contactDetails}>✔️ {item.name}</Text> }
             />
           </View>       
-          <Text style={styles.contactDetails}>Tipo de banheiro: {type_bathroom}</Text>
-          <Text style={styles.contactDetails}>Área do alojamento (em m²): {area}</Text>
-          <Text style={styles.contactDetails}>Descrição: {description}</Text>
-          <Text style={styles.contactDetails}>Outras informações: {more_informations}</Text>
+          
+          <Text style={styles.contactDetails}><B>Área do alojamento (em m²):</B> {area}</Text>
+          <Text style={styles.contactDetails}><B>Descrição:</B> {description}</Text>
+          <Text style={styles.contactDetails}><B>Outras informações:</B> {more_informations}</Text>
 
-          <View style={styles.photo}>
-          <FlatList
-            data={photo}
-            renderItem={({item}) =>  <Image source={{uri: item.link}} style={styles.image} />   }
-          />
-          </View>
 
           <View style={styles.button} >
-            <Button onPress={() => Linking.openURL(`${video}`) }
+            <Button color='#1894f4' onPress={() => Linking.openURL(`${video}`) }
               title="Veja o vídeo" />
           </View>
            <View style={styles.button} >
-            <Button onPress={() => Linking.openURL(`mailto:${email}`) }
+            <Button color='#1894f4' onPress={() => Linking.openURL(`mailto:${email}`) }
               title="Enviar E-mail" />
           </View>
           <View style={styles.button} >
-            <Button onPress={() => Linking.openURL(`tel:${phone}`) }
+            <Button color='#1894f4' onPress={() => Linking.openURL(`tel:${phone}`) }
               title="Ligar" />
           </View>
         <View style={styles.button} >
-          <Button title="Voltar" onPress={() => navigate('HabitationList')} />
+          <Button color='#003893' title="Voltar" onPress={() => navigate('HabitationList')} />
         </View>
       </View>
     );
@@ -136,7 +142,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 2
+    padding: 5
   },
   contactName: {
     fontSize: 18,
@@ -144,23 +150,28 @@ const styles = StyleSheet.create({
   },
   contactDetails: {
     fontSize: 16,
-    paddingTop: 2,
+    paddingTop: 5,
     textAlign: 'justify'
   },
   button: {
-    padding: 15,
+    padding: 10,
     backgroundColor: '#FFFFFF'
   },
   image: {
     margin: 2,
     height: 300,
-    width: 300
+    width: 300,
+    borderRadius: 25
   },
   photo: {
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
   underTopic: {
     paddingLeft: 3
+  },
+  bold: {
+    fontWeight: 'bold'
   }
 });

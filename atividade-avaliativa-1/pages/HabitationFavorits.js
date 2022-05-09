@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, ScrollView, Button, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, Button, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Data from '../json/generated.json';
  
@@ -76,7 +76,7 @@ export default class HabitationDetailsScreen extends React.Component {
         //   />
         // ) */}
         <View style={styles.button} >
-          <Button title="Voltar" onPress={() => navigate('Home')} />
+          <Button color='#003893' title="Voltar" onPress={() => navigate('Home')} />
         </View>
       </View>
     );
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 15,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
   },
   black: {
     backgroundColor: 'black',
