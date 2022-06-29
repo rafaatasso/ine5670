@@ -156,6 +156,36 @@ router.get('/vehicle/:id', async (req, res) => {
     }
 })
 
+// Verificar se está no horário da reservar
+router.get('/:id/on', async (req, res) => {
+    const id = req.params.id
+
+    try {
+        // Buscando Reserva na base
+        const reservation = await Reservation.findOne({ client: id })
+
+        if (!reservation) {
+            res.status(422).json({ error: 'Nenhuma reserva com esse id foi encontrada na base!'})
+            return // Para parar de rodar o código
+        }
+
+        const now = new Date()
+        let hour_init = new Date(reservation.time_init)
+        let hour_end = new Date(reservation.time_end)
+
+        if (rsvInitDate <= dateNow && rsvEndDate >= dateNow) {
+            res.status(200).json({ message: 'Reserva está ativada nesse momento.' })
+            return
+        } else {
+            res.status(204).json('')
+        }
+       
+    } catch (error) {
+        // Enviando mensagem de erro
+        res.status(500).json({ error: error.message })
+    }
+})
+
 //Deletar id exclusivo
 router.delete('/:id', async (req, res) => {
     const id = req.params.id

@@ -22,7 +22,7 @@ app.use("/location", require("./routes/locationRoutes"));
 
 app.use("/reservation", require("./routes/reservationRoutes"));
 
-// app.use("/unlocking", require("./routes/unlockingRoutes"));
+app.use("/unlocking", require("./routes/unlockingRoutes"));
 
 // app.use("/billing", require("./routes/billingRoutes"));
 
