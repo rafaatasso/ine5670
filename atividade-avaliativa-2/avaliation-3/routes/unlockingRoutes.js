@@ -1,5 +1,5 @@
 const router = require('express').Router()
-
+const axios = require('axios').default;
 const Unlocking = require('../models/Unlocking')
 
 // Criação dos dados
@@ -108,9 +108,9 @@ router.patch('/:id', async (req, res) => {
 
 //Deletar id exclusivo
 router.delete('/:id', async (req, res) => {
-    const id = req.params.id
+    const id_del = req.params.id
 
-    const unlocking = await Unlocking.findOne({ _id: id })
+    const unlocking = await Unlocking.findOne({ _id: id_del })
 
     if (!unlocking) {
         res.status(422).json({ error: 'A Trava não foi encontrada na base!'})
@@ -118,7 +118,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     try {
-        await Unlocking.deleteOne({ _id: id })
+        await Unlocking.deleteOne({ _id: id_del })
 
         res.status(200).json({ message: 'Trava deletada com sucesso!' })
     } catch (error) {
@@ -127,19 +127,19 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-// Desbloqueia o veículo
-router.delete('/reservation/:id', async (req, res) => {
-    const id = req.params.id
+// Desbloqueia o veículo com id cliente
+router.get('/reservation/:id', async (req, res) => {
+    const id_reserve = req.params.id
 
     try {
         reserveActive = await axios.get(
-        "http://localhost:8080/reservation/" + id + "/on"
+        "http://localhost:8080/reservation/" + id_reserve + "/on"
         );
     
         if (reserveActive.status === 200) {
             const result = await Unlocking.updateOne(
                 { lock: false },
-                { reservation: id }
+                { reservation: id_reserve }
             )
             if (result.matchedCount === 0) {
                 res.status(422).json({ message: 'Nenhuma trava encontrada com esse ID!' })

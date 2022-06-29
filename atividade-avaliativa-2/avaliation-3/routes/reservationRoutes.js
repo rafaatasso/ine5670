@@ -66,15 +66,15 @@ router.post('/', async (req, res) => {
     
         let vehicle_data = await axios.get("http://localhost:8080/vehicle/" + vehicle);
     
-        console.log(vehicle_data.data.rent)
-        console.log(time_with_vehicle)
-        console.log(client_data.data.credit_card)
-        console.log(reserve.id)
-        // let billing_data = await axios.post("http://localhost:8080/billing/", {
-        // price: vehicle_data.data.rent * time_with_vehicle,
-        // credit_card: client_data.data.credit_card,
-        // reserva_id: reserve.id,
-        // });
+        // console.log(vehicle_data.data.rent)
+        // console.log(time_with_vehicle)
+        // console.log(client_data.data.credit_card)
+        // console.log(reserve.id)
+        let billing_data = await axios.post("http://localhost:8080/billing/", {
+        price: vehicle_data.data.rent * time_with_vehicle,
+        credit_card: client_data.data.credit_card,
+        reservation: reserve.id,
+        });
 
         res.status(201).json({ message: 'Reserva cadastrada no sistema com sucesso!'})
     } catch (error) {
@@ -158,11 +158,11 @@ router.get('/vehicle/:id', async (req, res) => {
 
 // Verificar se está no horário da reservar
 router.get('/:id/on', async (req, res) => {
-    const id = req.params.id
+    const id_on = req.params.id
 
     try {
         // Buscando Reserva na base
-        const reservation = await Reservation.findOne({ client: id })
+        const reservation = await Reservation.findOne({ client: id_on })
 
         if (!reservation) {
             res.status(422).json({ error: 'Nenhuma reserva com esse id foi encontrada na base!'})
@@ -173,11 +173,11 @@ router.get('/:id/on', async (req, res) => {
         let hour_init = new Date(reservation.time_init)
         let hour_end = new Date(reservation.time_end)
 
-        if (rsvInitDate <= dateNow && rsvEndDate >= dateNow) {
+        if (hour_init <= now && hour_end >= now) {
             res.status(200).json({ message: 'Reserva está ativada nesse momento.' })
             return
         } else {
-            res.status(204).json('')
+            res.status(204).json({ message: 'Reserva não está ativada nesse momento.' })
         }
        
     } catch (error) {
@@ -188,9 +188,9 @@ router.get('/:id/on', async (req, res) => {
 
 //Deletar id exclusivo
 router.delete('/:id', async (req, res) => {
-    const id = req.params.id
+    const id_del = req.params.id
 
-    const reservation = await Reservation.findOne({ _id: id })
+    const reservation = await Reservation.findOne({ _id: id_del })
 
     if (!reservation) {
         res.status(422).json({ error: 'O Reserva não foi encontrada na base!'})
@@ -198,7 +198,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     try {
-        await Reservation.deleteOne({ _id: id })
+        await Reservation.deleteOne({ _id: id_del })
 
         res.status(200).json({ message: 'Reserva deletado com sucesso!' })
     } catch (error) {

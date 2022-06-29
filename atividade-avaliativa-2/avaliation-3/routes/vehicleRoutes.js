@@ -132,9 +132,9 @@ router.patch('/:id', async (req, res) => {
 
 //Deletar id exclusivo
 router.delete('/:id', async (req, res) => {
-    const id = req.params.id
+    const id_del = req.params.id
 
-    const vehicle = await Vehicle.findOne({ _id: id })
+    const vehicle = await Vehicle.findOne({ _id: id_del })
 
     if (!vehicle) {
         res.status(422).json({ error: 'O Veículo não foi encontrado na base!'})
@@ -142,7 +142,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     try {
-        await Vehicle.deleteOne({ _id: id })
+        await Vehicle.deleteOne({ _id: id_del })
 
         res.status(200).json({ message: 'Veículo deletado com sucesso!' })
     } catch (error) {

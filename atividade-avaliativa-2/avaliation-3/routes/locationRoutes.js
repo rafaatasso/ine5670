@@ -120,9 +120,9 @@ router.patch('/:id', async (req, res) => {
 
 //Deletar id exclusivo
 router.delete('/:id', async (req, res) => {
-    const id = req.params.id
+    const id_del = req.params.id
 
-    const location = await Location.findOne({ _id: id })
+    const location = await Location.findOne({ _id: id_del })
 
     if (!location) {
         res.status(422).json({ error: 'O Localização não foi encontrada na base!'})
@@ -130,7 +130,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     try {
-        await Location.deleteOne({ _id: id })
+        await Location.deleteOne({ _id: id_del })
 
         res.status(200).json({ message: 'Localização deletado com sucesso!' })
     } catch (error) {

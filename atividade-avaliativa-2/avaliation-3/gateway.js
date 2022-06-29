@@ -24,7 +24,7 @@ app.use("/reservation", require("./routes/reservationRoutes"));
 
 app.use("/unlocking", require("./routes/unlockingRoutes"));
 
-// app.use("/billing", require("./routes/billingRoutes"));
+app.use("/billing", require("./routes/billingRoutes"));
 
 // Rota inicial
 app.get("/", (req, res) => {
