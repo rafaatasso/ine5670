@@ -16,7 +16,7 @@ app.use(express.json())
 // Rotas
 app.use("/client", require("./routes/clientRoutes"));
 
-// app.use("/vehicle", require("./routes/vehicleRoutes"));
+app.use("/vehicle", require("./routes/vehicleRoutes"));
 
 // app.use("/location", require("./routes/locationRoutes"));
 
