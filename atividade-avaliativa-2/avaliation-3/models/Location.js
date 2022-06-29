@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 const Location = mongoose.model('Location', {
     lat: String,
     long: String,
-    vehicle: mongoose.ObjectId
+    vehicle: {
+        type: mongoose.ObjectId,
+        ref: 'Vehicle',
+    }
 })
 
 module.exports = Location

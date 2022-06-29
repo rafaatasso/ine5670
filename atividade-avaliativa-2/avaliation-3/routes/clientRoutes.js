@@ -70,16 +70,16 @@ router.get('/', async (req, res) => {
     }
 })
 
-// Buscar cpf exclusivo
-router.get('/:cpf', async (req, res) => {
-    const cpf = req.params.cpf
+// Buscar id exclusivo
+router.get('/:id', async (req, res) => {
+    const id = req.params.id
 
     try {
         // Buscando cliente na base
-        const client = await Client.findOne({ cpf: cpf })
+        const client = await Client.findOne({ _id: id })
 
         if (!client) {
-            res.status(422).json({ error: 'Um cliente com esse CPF não foi encontrado na base!'})
+            res.status(422).json({ error: 'Um cliente com esse id não foi encontrado na base!'})
             return // Para parar de rodar o código
         }
 
@@ -93,8 +93,8 @@ router.get('/:cpf', async (req, res) => {
 // Atualização
 // Pode ser por PUT ou PATCH
 // PATCH é uma atualização parcial dos dados
-router.patch('/:cpf', async (req, res) => {
-    const cpf_code = req.params.cpf
+router.patch('/:id', async (req, res) => {
+    const id_code = req.params.id
 
     const { name, cpf, cnh, email, cellphone, credit_card } = req.body
 
@@ -139,11 +139,11 @@ router.patch('/:cpf', async (req, res) => {
 
     try {
         // Buscando cliente na base
-        const updatedClient = await Client.updateOne({ cpf: cpf_code }, client)
+        const updatedClient = await Client.updateOne({ _id: id_code }, client)
 
         if (updatedClient.matchedCount === 0) {
             // matchedCount Mostra quantos dados foram atualizados
-            res.status(422).json({ error: 'Um cliente com esse CPF não foi encontrado na base!'})
+            res.status(422).json({ error: 'Um cliente com esse id não foi encontrado na base!'})
             return // Para parar de rodar o código
         }
 
@@ -154,11 +154,11 @@ router.patch('/:cpf', async (req, res) => {
     }
 })
 
-//Deletar cpf exclusivo
-router.delete('/:cpf', async (req, res) => {
-    const cpf = req.params.cpf
+//Deletar id exclusivo
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
 
-    const client = await Client.findOne({ cpf: cpf })
+    const client = await Client.findOne({ _id: id })
 
     if (!client) {
         res.status(422).json({ error: 'O cliente não foi encontrado na base!'})
@@ -166,7 +166,7 @@ router.delete('/:cpf', async (req, res) => {
     }
 
     try {
-        await Client.deleteOne({ cpf: cpf })
+        await Client.deleteOne({ _id: id })
 
         res.status(200).json({ message: 'Cliente deletado com sucesso!' })
     } catch (error) {

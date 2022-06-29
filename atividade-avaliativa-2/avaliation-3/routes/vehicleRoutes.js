@@ -58,16 +58,16 @@ router.get('/', async (req, res) => {
     }
 })
 
-// Buscar placa exclusiva
-router.get('/:license_plate', async (req, res) => {
-    const license_plate = req.params.license_plate
+// Buscar id exclusiva
+router.get('/:id', async (req, res) => {
+    const id = req.params.id
 
     try {
         // Buscando Veículo na base
-        const vehicle = await Vehicle.findOne({ license_plate: license_plate })
+        const vehicle = await Vehicle.findOne({ _id: id })
 
         if (!vehicle) {
-            res.status(422).json({ error: 'Um Veículo com esse license_plate não foi encontrado na base!'})
+            res.status(422).json({ error: 'Um Veículo com esse id não foi encontrado na base!'})
             return // Para parar de rodar o código
         }
 
@@ -81,8 +81,8 @@ router.get('/:license_plate', async (req, res) => {
 // Atualização
 // Pode ser por PUT ou PATCH
 // PATCH é uma atualização parcial dos dados
-router.patch('/:license_plate', async (req, res) => {
-    const license_plate_code = req.params.license_plate
+router.patch('/:id', async (req, res) => {
+    const id_code = req.params.id
 
     const { license_plate, year, model, rent } = req.body
 
@@ -115,11 +115,11 @@ router.patch('/:license_plate', async (req, res) => {
 
     try {
         // Buscando Veículo na base
-        const updatedVehicle = await Vehicle.updateOne({ license_plate: license_plate_code }, vehicle)
+        const updatedVehicle = await Vehicle.updateOne({ _id: id_code }, vehicle)
 
         if (updatedVehicle.matchedCount === 0) {
             // matchedCount Mostra quantos dados foram atualizados
-            res.status(422).json({ error: 'Um Veículo com esse license_plate não foi encontrado na base!'})
+            res.status(422).json({ error: 'Um Veículo com esse id não foi encontrado na base!'})
             return // Para parar de rodar o código
         }
 
@@ -130,11 +130,11 @@ router.patch('/:license_plate', async (req, res) => {
     }
 })
 
-//Deletar license_plate exclusivo
-router.delete('/:license_plate', async (req, res) => {
-    const license_plate = req.params.license_plate
+//Deletar id exclusivo
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
 
-    const vehicle = await Vehicle.findOne({ license_plate: license_plate })
+    const vehicle = await Vehicle.findOne({ _id: id })
 
     if (!vehicle) {
         res.status(422).json({ error: 'O Veículo não foi encontrado na base!'})
@@ -142,7 +142,7 @@ router.delete('/:license_plate', async (req, res) => {
     }
 
     try {
-        await Vehicle.deleteOne({ license_plate: license_plate })
+        await Vehicle.deleteOne({ _id: id })
 
         res.status(200).json({ message: 'Veículo deletado com sucesso!' })
     } catch (error) {
