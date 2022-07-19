@@ -5,7 +5,12 @@ const Light = require('../models/Light')
 // Criação dos dados
 router.post('/', async (req, res) => {
     //Req Body
-    const { quantityWanted, actualQuantity, status, partyMode } = req.body
+    const { nickname, quantityWanted, actualQuantity, status, partyMode } = req.body
+
+    if (!nickname) {
+        res.status(422).json({ error: 'A luz precisa de um apelido!'})
+        return // Para parar de rodar o código
+    }
 
     if (!quantityWanted) {
         res.status(422).json({ error: 'A quantidade de luz é obrigatória!'})
@@ -28,6 +33,7 @@ router.post('/', async (req, res) => {
     }
 
     const light = {
+        nickname,
         quantityWanted,
         actualQuantity,
         status,
@@ -38,7 +44,7 @@ router.post('/', async (req, res) => {
         // Criando os dados
         await Light.create(light)
 
-        res.status(201).json({ message: 'Cobrança cadastrado no sistema com sucesso!'})
+        res.status(201).json({ message: 'Luz cadastrada no sistema com sucesso!'})
     } catch (error) {
         // Enviando mensagem de erro
         res.status(500).json({ error: error.message })
@@ -48,7 +54,7 @@ router.post('/', async (req, res) => {
 // Leitura das informações
 router.get('/', async (req, res) => {
     try {
-        // Buscando Cobrança na base
+        // Buscando Luz na base
         const light = await Light.find()
 
         res.status(200).json(light)
@@ -63,11 +69,31 @@ router.get('/:id', async (req, res) => {
     const id = req.params.id
 
     try {
-        // Buscando Cobrança na base
+        // Buscando Luz na base
         const light = await Light.findOne({ _id: id })
 
         if (!light) {
-            res.status(422).json({ error: 'Um Cobrança com esse id não foi encontrado na base!'})
+            res.status(422).json({ error: 'Uma Luz com esse id não foi encontrado na base!'})
+            return // Para parar de rodar o código
+        }
+
+        res.status(200).json(light)
+    } catch (error) {
+        // Enviando mensagem de erro
+        res.status(500).json({ error: error.message })
+    }
+})
+
+// Busca por nickname da lâmpada
+router.get('/nickname/:nickname', async (req, res) => {
+    const nickname = req.params.nickname
+
+    try {
+        // Buscando Luz na base
+        const light = await Light.findOne({ nickname: nickname })
+
+        if (!light) {
+            res.status(422).json({ error: 'Uma Luz com esse nickname não foi encontrado na base!'})
             return // Para parar de rodar o código
         }
 
@@ -84,7 +110,12 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', async (req, res) => {
     const id_code = req.params.id
 
-    const { quantityWanted, actualQuantity, status, partyMode } = req.body
+    const { nickname, quantityWanted, actualQuantity, status, partyMode } = req.body
+
+    if (!nickname) {
+        res.status(422).json({ error: 'A luz precisa de um apelido!'})
+        return // Para parar de rodar o código
+    }
 
     if (!quantityWanted) {
         res.status(422).json({ error: 'A quantidade de luz é obrigatória!'})
@@ -107,6 +138,7 @@ router.patch('/:id', async (req, res) => {
     }
 
     const light = {
+        nickname,
         quantityWanted,
         actualQuantity,
         status,
@@ -137,14 +169,14 @@ router.delete('/:id', async (req, res) => {
     console.log(light_del)
 
     if (!light_del) {
-        res.status(422).json({ error: 'O Cobrança não foi encontrado na base!'})
+        res.status(422).json({ error: 'A luz não foi encontrado na base!'})
         return // Para parar de rodar o código
     }
 
     try {
         await Light.deleteOne({ _id: id_del })
 
-        res.status(200).json({ message: 'Cobrança deletado com sucesso!' })
+        res.status(200).json({ message: 'Luz deletada com sucesso!' })
     } catch (error) {
         // Enviando mensagem de erro
         res.status(500).json({ error: error })
